@@ -1,0 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+name: Build and Test Pipeline - Ryan Cuthbert
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Step
+        run: |
+          echo "Starting build process..."
+          sleep 3
+          echo "Build completed successfully"
+          echo "Built by Ryan Cuthbert"
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Test Step
+        run: |
+          echo "Running automated tests..."
+          sleep 2
+          date
+          echo "All tests passed for Ryan Cuthbert"
+
